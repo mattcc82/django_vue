@@ -22,5 +22,10 @@ class Products(models.Model):
     shipping_cost = models.FloatField()
     quantity = models.SmallIntegerField()
 
+    class Meta:
+        verbose_name = 'Products'
+        verbose_name_plural = 'Products'
+
+
     def __str__(self):
         return self.name
