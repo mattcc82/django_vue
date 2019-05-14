@@ -20,7 +20,6 @@ class ProfileStatus(models.Model):
 
     class Meta:
         verbose_name_plural = 'statuses'
-        verbose_name = 'status'
 
     def __str__(self):
         return str(self.user_profile)
