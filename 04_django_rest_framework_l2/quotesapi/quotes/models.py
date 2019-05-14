@@ -4,8 +4,8 @@ from django.db import models
 class Quotes(models.Model):
     quote_author = models.CharField(max_length=60)
     quote_body = models.TextField()
-    context = models.CharField(max_length=60)
-    source = models.CharField(max_length=30)
+    context = models.CharField(max_length=60, blank=True)
+    source = models.CharField(max_length=30, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
