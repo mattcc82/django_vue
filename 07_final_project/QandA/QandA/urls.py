@@ -30,6 +30,7 @@ urlpatterns = [
     path('accounts/register/',
         RegistrationView.as_view(
             form_class=CustomUserForm,
+            template_name='django_registration/registration.html',
             success_url='/'
         ), name='django_registration_register'),
     
