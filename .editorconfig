@@ -24,6 +24,11 @@ indent_style = tab
 indent_style = space
 indent_size = 2
 
+# html indent
+[*.html]
+indent_style = space
+indent_size = 2
+
 # vue files
 [*.vue]
 indent_style = space
