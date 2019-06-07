@@ -25,7 +25,33 @@ SECRET_KEY = 'dq92@fsddj(@3&s1-m#$4td5&hd0!nft!pc17vd&7vr$r$_mhf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# LOGGING
+LOGGING = {}
+if DEBUG:
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'handlers': {
+            'console': {
+                'class': 'logging.StreamHandler',
+            },
+            'file': {
+                'level': 'DEBUG',
+                'class': 'logging.FileHandler',
+                'filename': './debug.log',
+            },
+        },
+        'loggers': {
+            'django': {
+                'handlers': ['console', 'file'],
+                'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+                'propagate': True,
+            },
+        },
+    }
+
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -56,6 +82,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'djdev_panel.middleware.DebugMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
