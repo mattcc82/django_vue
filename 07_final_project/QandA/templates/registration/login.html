@@ -1,10 +1,11 @@
-{% extends 'layout.html' %}
+{% extends 'auth_layout.html' %}
 {% load crispy_forms_tags %}
 
-{% block content %}
+{% block authcontent %}
 <div class="card card-block">
   <h1>QandA</h1>
-  <p class="lead text-muted">Ask & Answer</p>
+  <hr style="background: dodgerblue;">
+  <p class="lead">Ask & Answer</p>
   <div class="login-form-container">
     <form method="POST">
       {% csrf_token %}
