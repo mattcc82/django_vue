@@ -15,12 +15,12 @@
             <v-list-tile-title>Home</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile exact :to="{ name: 'about' }">
+        <v-list-tile exact :to="{ name: 'home' }">
           <v-list-tile-action>
-            <v-icon>help</v-icon>
+            <v-icon>comment</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>About</v-list-tile-title>
+            <v-list-tile-title>Ask Question</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
         <v-list-tile exact href="/accounts/logout/">
@@ -50,11 +50,11 @@
         </v-tooltip>
         <v-tooltip bottom>
           <template v-slot:activator="{ on }">
-            <v-btn v-on="on" icon flat exact :to="{ name: 'about' }">
-              <v-icon>help</v-icon>
+            <v-btn v-on="on" icon flat exact :to="{ name: 'home' }">
+              <v-icon>comment</v-icon>
             </v-btn>
           </template>
-          <span>About</span>
+          <span>Ask Question</span>
         </v-tooltip>
         <v-tooltip bottom>
           <template v-slot:activator="{ on }">
@@ -68,8 +68,8 @@
     </v-toolbar>
     <v-content>
       <v-container fluid fill-height>
-        <v-layout justify-center align-center>
-          <v-flex shrink>
+        <v-layout>
+          <v-flex>
             <transition name="fade" mode="out-in">
               <router-view></router-view>
             </transition>
