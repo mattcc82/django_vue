@@ -15,7 +15,7 @@
             <v-list-tile-title>Home</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile exact :to="{ name: 'home' }">
+        <v-list-tile exact :to="{ name: 'ask' }">
           <v-list-tile-action>
             <v-icon>comment</v-icon>
           </v-list-tile-action>
@@ -50,7 +50,7 @@
         </v-tooltip>
         <v-tooltip bottom>
           <template v-slot:activator="{ on }">
-            <v-btn v-on="on" icon flat exact :to="{ name: 'home' }">
+            <v-btn v-on="on" icon flat exact :to="{ name: 'ask' }">
               <v-icon>comment</v-icon>
             </v-btn>
           </template>
