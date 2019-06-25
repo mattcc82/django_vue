@@ -27,7 +27,7 @@
 
   <v-card-title primary-title>
     <div>
-      <pre class="subheading" v-html="answer.body"></pre>
+      <span class="subheading pre" v-html="$sanitize(answer.body)"></span>
     </div>
   </v-card-title>
 
@@ -55,3 +55,12 @@ export default {
   }
 }
 </script>
+<style scoped>
+.pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+</style>

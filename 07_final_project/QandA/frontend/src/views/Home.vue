@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import { apiService } from '../common/api.service'
+import { apiService } from '@/common/api.service'
 export default {
   name: 'home',
   data () {
@@ -81,24 +81,26 @@ export default {
   methods: {
     getQuestions () {
       this.loading = true
-      let endpoint = 'api/questions/'
-      if (this.next) {
-        endpoint = this.next
-      }
-      apiService.get(endpoint)
-        .then(response => {
-          this.questions.push(...response.data.results)
-          if (response.data.next) {
-            this.next = response.data.next
-          } else {
-            this.next = null
-          }
-          this.loading = false
-        })
-        .catch(error => {
-          this.error = true
-          this.errorText = error
-        })
+      setTimeout(() => {
+        let endpoint = 'api/questions/'
+        if (this.next) {
+          endpoint = this.next
+        }
+        apiService.get(endpoint)
+          .then(response => {
+            this.questions.push(...response.data.results)
+            if (response.data.next) {
+              this.next = response.data.next
+            } else {
+              this.next = null
+            }
+            this.loading = false
+          })
+          .catch(error => {
+            this.error = true
+            this.errorText = error
+          })
+      }, 500)
     }
   },
   mounted () {

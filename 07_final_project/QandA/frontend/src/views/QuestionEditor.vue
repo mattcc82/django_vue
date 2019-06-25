@@ -17,7 +17,7 @@
               v-model="question"
               auto-grow
               no-resize
-              name="input-7-1"
+              name="question-input"
               label="Ask your question here - "
               hint="Ask Away!"
               :rules="questionRules"
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { apiService } from '../common/api.service'
+import { apiService } from '@/common/api.service'
 export default {
   name: 'QuestionEditor',
   data () {
@@ -68,7 +68,7 @@ export default {
     submit () {
       if (this.$refs.questionForm.validate()) {
         let endpoint = '/api/questions/'
-        apiService.post(endpoint, { content: this.question })
+        apiService.post(endpoint, { content: this.$sanitize(this.question) })
           .then(response => {
             this.$router.push({
               name: 'question',
